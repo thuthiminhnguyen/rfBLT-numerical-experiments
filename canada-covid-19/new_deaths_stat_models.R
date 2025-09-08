@@ -291,3 +291,26 @@ for (i in 1:df_nrow){
   df_lower_bayes_lasso_taken_normal_error[i, 2:df_ncol] <- revert_fn(x=as.vector(normal_error_res$pred.ci[,1]), max_org=max_train, min_org=min_train)   
   df_upper_bayes_lasso_taken_normal_error[i, 2:df_ncol] <- revert_fn(x=as.vector(normal_error_res$pred.ci[,2]), max_org=max_train, min_org=min_train)
 }
+
+# Save data for analyzing
+death_case <- second_wave_df$numdeaths_diff_avg
+save(death_case,
+     df_true, 
+     
+     df_pred_arima,
+     df_lower_arima,
+     df_upper_arima,
+
+     df_pred_holt,
+     df_lower_holt,
+     df_upper_holt,
+     
+     df_pred_bayes_lasso,
+     df_lower_bayes_lasso,
+     df_upper_bayes_lasso,
+     
+     df_pred_bayes_lasso_taken_normal_error,
+     df_lower_bayes_lasso_taken_normal_error,
+     df_upper_bayes_lasso_taken_normal_error,
+     
+     file = "COVID19_deaths_output_July11.RData")
