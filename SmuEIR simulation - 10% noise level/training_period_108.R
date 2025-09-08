@@ -322,8 +322,20 @@ for (i in 1:n_simulation){
 # Save data for analyzing
 save(I_noise_avg_mat,
      y_true_mat,
+
+     # ARIMA
+     m108_arima_pred_avg_noise,
+     m108_arima_lowerCI_avg_noise,
+     m108_arima_upperCI_avg_noise,
+     m108_arima_avg_noise_aic,
+
+     # Holt
+     m108_holt_pred_avg_noise,
+     m108_holt_lowerCI_avg_noise,
+     m108_holt_upperCI_avg_noise,
+     m108_holt_avg_noise_aic,
      
-     # Bayes Lasso
+     # rfBL
      m108_pred_bayes_lasso,
      m108_lowerCI_bayes_lasso,
      m108_upperCI_bayes_lasso,
