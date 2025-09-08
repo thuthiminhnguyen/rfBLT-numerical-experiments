@@ -21,6 +21,8 @@ Please install the `rfBLT` package from this repository [link](https://github.co
   -  `covid19-download.csv`: Daily data from March 2020 to January 2022.
   -  `new_cases_lstm.R`: Implement LSTM for new cases.
   -  `new_cases_stat_models.R`: Implement statistical models (ARIMA, Holt, rfBL, rfBLT) for new cases.
+  -  `new_cases_visualization.R`: Visualize the results of all models based on new cases data.
   -  `new_deaths_lstm.R`: Implement LSTM for new fatalities.
   -  `new_deaths_stat_models.R`: Implement statistical models (ARIMA, Holt, rfBL, rfBLT) for new fatalities.
+  -  `new_deaths_visualization.R`: Visualize the results of all models based on new deaths data.
   -  `random_forests.R`: Implement Random Forest for new cases and fatalities. 
