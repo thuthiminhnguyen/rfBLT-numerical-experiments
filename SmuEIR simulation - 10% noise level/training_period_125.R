@@ -317,3 +317,36 @@ for (i in 1:n_simulation){
   m125_holt_upperCI_avg_noise[i,] <- as.vector(fit_holt$upper[,2])
   m125_holt_avg_noise_aic[i] <- AIC(fit_holt$model)
 }
+
+# Save data for analyzing
+save(I_noise_avg_mat,
+     y_true_mat,
+
+     # ARIMA
+     m125_arima_pred_avg_noise,
+     m125_arima_lowerCI_avg_noise,
+     m125_arima_upperCI_avg_noise,
+     m125_arima_avg_noise_aic,
+
+     # Holt
+     m125_holt_pred_avg_noise,
+     m125_holt_lowerCI_avg_noise,
+     m125_holt_upperCI_avg_noise,
+     m125_holt_avg_noise_aic,
+     
+     # rfBL
+     m125_pred_bayes_lasso,
+     m125_lowerCI_bayes_lasso,
+     m125_upperCI_bayes_lasso,
+     
+     # rfBLT with smoothing derivatives
+     m125_pred_bayes_lasso_taken,
+     m125_lowerCI_bayes_lasso_taken,
+     m125_upperCI_bayes_lasso_taken,
+
+     # rfBLT without smoothing derivatives
+     m125_pred_BLT_normal_error,
+     m125_lowerCI_normal_error,
+     m125_upperCI_normal_error,
+    
+     file = "simulation0.1_m125_July17.RData")
