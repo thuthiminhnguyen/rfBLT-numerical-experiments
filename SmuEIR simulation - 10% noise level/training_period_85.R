@@ -317,3 +317,24 @@ for (i in 1:n_simulation){
     m85_holt_upperCI_avg_noise[i,] <- as.vector(fit_holt$upper[,2])
     m85_holt_avg_noise_aic[i] <- AIC(fit_holt$model)
 }
+
+# Save data for analyzing
+save(I_noise_avg_mat,
+     y_true_mat,
+     
+     # Bayes Lasso
+     m85_pred_bayes_lasso,
+     m85_lowerCI_bayes_lasso,
+     m85_upperCI_bayes_lasso,
+     
+     # rfBL
+     m85_pred_bayes_lasso_taken,
+     m85_lowerCI_bayes_lasso_taken,
+     m85_upperCI_bayes_lasso_taken,
+
+     # rfBLT
+     m85_pred_BLT_normal_error,
+     m85_lowerCI_normal_error,
+     m85_upperCI_normal_error,
+    
+     file = "simulation0.1_m85_July17.RData")
