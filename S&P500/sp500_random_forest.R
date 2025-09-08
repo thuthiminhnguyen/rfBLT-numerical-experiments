@@ -124,3 +124,9 @@ for (i in 1:df_nrow){
     }
     df_pred_rforest[i, 2:df_ncol] <- y_pred_vec
 }
+
+# Save data for analyzing
+save(prices, 
+     df_true,
+     df_pred_rforest,
+     file = "SP500_rforest_output_July11.RData")
