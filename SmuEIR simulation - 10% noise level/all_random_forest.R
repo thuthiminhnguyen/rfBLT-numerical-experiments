@@ -342,3 +342,12 @@ for (i in 1:df_nrow){
     }
     m125_pred_rforest[i, ] <- y_pred_vec
 }
+
+# Save data for analyzing
+save(I_noise_avg_mat,
+     m85_pred_rforest,
+     m102_pred_rforest,
+     m108_pred_rforest,
+     m114_pred_rforest,
+     m125_pred_rforest,
+     file="simulation0.1_rforest_July22.RData")
