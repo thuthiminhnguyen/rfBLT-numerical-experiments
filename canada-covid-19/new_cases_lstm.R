@@ -200,3 +200,11 @@ for (i in 1:df_nrow){
     df_pred_lstm[i, 2:df_ncol] <- revert_fn(x=res$pred, max_org=max_train, min_org=min_train) 
     loss_lstm_mat[i, ] <- res$loss
 }
+
+# Save data for analyzing
+infectious_new_case <- second_wave_df$numconf_diff_avg
+save(infectious_new_case,
+     df_true,
+     df_pred_lstm,
+     loss_lstm_mat,
+     file = "COVID19_new_case_output_lstm_July11.RData")
