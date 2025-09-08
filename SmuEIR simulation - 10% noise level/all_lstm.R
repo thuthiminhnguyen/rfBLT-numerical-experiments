@@ -217,3 +217,23 @@ for (i in 1:nrow(I_noise_avg_mat)){
   m125_pred_lstm_mat[i, ] <- res$pred
   m125_loss_mat[i, ] <- res$loss
 }
+
+# Save data for analyzing
+save(I_noise_avg_mat,
+     
+     m85_pred_lstm_mat, 
+     m85_loss_mat,
+     
+     m102_pred_lstm_mat, 
+     m102_loss_mat,
+
+     m108_pred_lstm_mat, 
+     m108_loss_mat,
+     
+     m114_pred_lstm_mat, 
+     m114_loss_mat,
+
+     m125_pred_lstm_mat, 
+     m125_loss_mat,
+     
+     file="simulation0.1_lstm_July17.RData")
