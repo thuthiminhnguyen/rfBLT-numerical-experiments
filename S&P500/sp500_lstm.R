@@ -155,7 +155,16 @@ for (i in 1:df_nrow){
     batch_size = 32,
     learning_rate = 0.0075
   )
+
+  
   
   df_pred_lstm[i, 2:df_ncol] <- revert_fn(x=res_lstm$pred, max_org=max_train, min_org=min_train)
   df_loss[i, 2:(num_epochs+1)] <- res_lstm$loss
 }
+
+# Save data for analyzing
+save(prices, 
+     df_true,     
+     df_pred_lstm,
+     df_loss,
+     file = "SP500_LSTM_output_July11.RData")
