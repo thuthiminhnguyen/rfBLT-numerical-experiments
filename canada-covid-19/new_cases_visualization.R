@@ -292,7 +292,6 @@ df_nrow = nrow(df_true)
 df_ncol = ncol(df_true)
 start_index = 100
 end_index = length(infectious_new_case)
-pred_mat = matrix(NA, nrow = df_nrow, ncol = (end_index - start_index + 1))
 
 # Compute MDA
 MDA_rforest <- numeric(ncol(df_true[,-1]))
@@ -440,7 +439,6 @@ df_nrow = nrow(df_true)
 df_ncol = ncol(df_true)
 start_index = 100
 end_index = length(infectious_new_case)
-pred_mat = matrix(NA, nrow = df_nrow, ncol = (end_index - start_index + 1))
 
 # Compute MDA
 MDA_lstm <- numeric(ncol(df_true[,-1]))
