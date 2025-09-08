@@ -13,10 +13,10 @@ Please install the `rfBLT` package from this repository [link](https://github.co
   - `all_lstm.R`: Implement LSTM.
   - `all_random_forest.R`: Implement Random Forest.
   - `training_period_102.R`: Implement statistical models (ARIMA, Holt, rfBL, rfBLT) at the training period of 102 days.
-  - `training_period_108.R`: Implement statistical models (ARIMA, Holt, rfBL, rfBLT) at the training period of 108 days.
-  - `training_period_114.R`: Implement statistical models (ARIMA, Holt, rfBL, rfBLT) at the training period of 114 days.
-  - `training_period_125.R`: Implement statistical models (ARIMA, Holt, rfBL, rfBLT) at the training period of 125 days.
-  - `training_period_85.R`: Implement statistical models (ARIMA, Holt, rfBL, rfBLT) at the training period of 85 days.
+  - `training_period_108.R`: Implement statistical models at the training period of 108 days.
+  - `training_period_114.R`: Implement statistical models at the training period of 114 days.
+  - `training_period_125.R`: Implement statistical models at the training period of 125 days.
+  - `training_period_85.R`: Implement statistical models at the training period of 85 days.
 - `canada-covid-19/`: Contains Canada COVID-19 data and experiments for new cases and deaths in Canada.
   -  `covid19-download.csv`: Daily data from March 2020 to January 2022.
   -  `new_cases_lstm.R`: Implement LSTM for new cases.
