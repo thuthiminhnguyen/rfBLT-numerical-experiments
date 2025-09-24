@@ -5,7 +5,7 @@ This repository provides the R code to reproduce the experiments in the paper of
 Please install the `rfBLT` package from this repository [link](https://github.com/thuthiminhnguyen/rfBLT). 
 
 ## Code Structure
-- `S&P500/`: Experiments on S&P500 index.
+- `S&P500/`: Experiments on the S&P500 index from January 15, 2022, to May 31, 2025.
   - `sp500_lstm.R`: Implement LSTM.
   - `sp500_random_forest.R`: Implement Random Forest.
   - `sp500_stat_models.R`: Implement statistical models (ARIMA, Holt, rfBL, rfBLT).
