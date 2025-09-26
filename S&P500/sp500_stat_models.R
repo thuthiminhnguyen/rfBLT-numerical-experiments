@@ -178,7 +178,7 @@ for (i in 1:df_nrow){
   max_train <- normalize_res$max_x
   min_train <- normalize_res$min_x
   
-  data_vec <- ts(train_vec, frequency=7)
+  data_vec <- ts(train_vec, frequency=252)
   # For Holt's method (trend, no seasonality)
   fit_holt <- holt(data_vec, h=7)
   df_pred_holt[i, 2:df_ncol] <- revert_fn(x=as.vector(fit_holt$mean), max_org=max_train, min_org=min_train) 
