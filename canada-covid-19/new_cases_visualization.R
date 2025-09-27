@@ -587,7 +587,7 @@ MDA_plot <- ggplot(combine_mda_df, aes(x = Day, y = MDA, color = Method)) +
   geom_point(size = 2.5) +
   scale_color_brewer(palette = "Dark2") +
   labs(
-    x = "Prediction horizon, h (days)",
+    x = "Prediction horizon",
     y = "MDA"
   ) +
   theme_minimal(base_size = 12) +
