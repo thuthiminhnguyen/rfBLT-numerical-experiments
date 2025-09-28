@@ -151,8 +151,8 @@ p_pred_period <- ggplot(new_df, aes(x = day, y = sp500)) +
     legend.title = element_blank(),       # <-- ensures no legend title
     legend.text = element_text(size = 8)
   ) +
-  scale_color_manual(values = c("Training End" = "blue", "Trough" = "gray", "Peak" = "gray")) +
-  scale_linetype_manual(values = c("Training End" = "dashed", "Trough" = "dashed", "Peak" = "solid")) +
+  scale_color_manual(values = c("First Training End" = "blue", "Trough" = "gray", "Peak" = "gray")) +
+  scale_linetype_manual(values = c("First Training End" = "dashed", "Trough" = "dashed", "Peak" = "solid")) +
   scale_x_continuous(
     breaks = vline_data$xintercept   # show ticks only at vertical line positions
   ) 
