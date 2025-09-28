@@ -120,10 +120,10 @@ for (i in 1:nrow(df_true)){
 # Data frame for vertical lines
 vline_data <- data.frame(
   xintercept = c(m, 775, 791, 799, 809, 817, 837),
-  type = c("Training End", "Peak", "Trough", "Peak", 
+  type = c("First Training End", "Peak", "Trough", "Peak", 
            "Trough", "Trough", "Peak")
 )
-vline_data$type <- factor(vline_data$type, levels = c("Training End", "Peak", "Trough"))
+vline_data$type <- factor(vline_data$type, levels = c("First Training End", "Peak", "Trough"))
 
 # Specify the period for visualization
 start <- m-20
