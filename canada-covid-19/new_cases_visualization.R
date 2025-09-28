@@ -161,8 +161,8 @@ p_2ndwave <- ggplot(second_wave_df, aes(x = seq_along(numconf_diff_avg), y = num
   geom_vline(data = vline_data,
              aes(xintercept = xintercept, color = type, linetype = type),
              size = 0.8, show.legend = TRUE) +
-  labs(title = "Second wave - New Deaths",
-       x = "Day", y = "Deaths",
+  labs(title = "Second wave - New Cases",
+       x = "Day", y = "Cases",
        color = NULL, linetype = NULL) +   # <-- removes legend titles
   theme_minimal() +
   theme(
