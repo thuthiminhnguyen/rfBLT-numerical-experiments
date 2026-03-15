@@ -75,5 +75,4 @@ Please install the `rfBLT` package from this repository [link](https://github.co
   -  `new_deaths_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the last training point of the new fatilities data, including trace plots, histograms, and box plots.
   -  `new_deaths_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the last training point of the new fatilities data, including trace plot, histogram, and box plot.
   -  `new_deaths_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all expanding windows of the new fatilities data.
-  -  `new_deaths_rfBL_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBL model across all expanding windows of the new fatilities data.
   -  `random_forests.R`: Implement Random Forest for new cases and fatalities. 
