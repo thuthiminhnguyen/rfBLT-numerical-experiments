@@ -4,6 +4,7 @@ library(zoo)
 library(randomForest)
 library(forecast)
 library(quantmod)
+set.seed(123)
 
 # --- Min-Max scaling ---
 # Normalize train data
