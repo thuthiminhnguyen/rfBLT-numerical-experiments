@@ -3,6 +3,7 @@ library(dplyr)
 library(zoo)
 library(randomForest)
 library(forecast)
+set.seed(123)
 
 # --- Min-Max scaling ---
 # Normalize train data
