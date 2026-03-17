@@ -50,7 +50,7 @@ filtered_df <- canada_df %>%
 
 # --- Specify input ---
 pred_size = 7
-window_size = 7
+window_size = 9
 
 # ----- New cases ----- 
 m1 = 155
