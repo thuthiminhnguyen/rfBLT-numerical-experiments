@@ -417,11 +417,6 @@ save(I_noise_avg_mat,
      m108_pred_bayes_lasso,
      m108_lowerCI_bayes_lasso,
      m108_upperCI_bayes_lasso,
-     
-     # rfBLT without smoothness
-     m108_pred_bayes_lasso_taken,
-     m108_lowerCI_bayes_lasso_taken,
-     m108_upperCI_bayes_lasso_taken,
 
      # rfBLT with smoothness
      m108_pred_BLT_normal_error,
