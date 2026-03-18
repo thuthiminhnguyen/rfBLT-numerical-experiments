@@ -10,12 +10,6 @@ Please install the `rfBLT` package from this repository [link](https://github.co
   - `sp500_random_forest.R`: Implement Random Forest.
   - `sp500_stat_models.R`: Implement statistical models (ARIMA, Holt, RF, rfBLT).
   - `sp500_visualization.R`: Visualize the results of all models using the closing value of the S&P500 index.
-  - `sp500_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the last training point, including trace plots, histograms, and box plots.
-  - `sp500_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the last training point, including trace plot, histogram, and box plot.
-  - `sp500_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all expanding windows.
-  - `sp500_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the last training point, including trace plots, histograms, and box plots.
-  - `sp500_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the last training point, including trace plot, histogram, and box plot.
-  - `sp500_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all expanding windows.
 - `SmuEIR simulation - 10% noise level/`: Experiments on 100 simulations from the SmuEIR model at 5 distinct training periods.
   - `all_lstm.R`: Implement LSTM.
   - `all_random_forest.R`: Implement Random Forest.
@@ -25,36 +19,6 @@ Please install the `rfBLT` package from this repository [link](https://github.co
   - `training_period_114.R`: Implement statistical models at the training period of 114 days.
   - `training_period_125.R`: Implement statistical models at the training period of 125 days.
   - `visualization.R`: Visualize the results at all training periods.
-  - `train85_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the period of 85 training days, including trace plots, histograms, and box plots.
-  - `train85_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the period of 85 training days, including trace plot, histogram, and box plot.
-  - `train85_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all 100 simulations at the period of 85 training days.
-  - `train102_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the period of 102 training days, including trace plots, histograms, and box plots.
-  - `train102_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the period of 102 training days, including trace plot, histogram, and box plot.
-  - `train102_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all 100 simulations at the period of 102 training days.
-  - `train108_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the period of 108 training days, including trace plots, histograms, and box plots.
-  - `train108_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLR model at the period of 108 training days, including trace plot, histogram, and box plot.
-  - `train108_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all 100 simulations at the period of 108 training days.
-  - `train114_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the period of 114 training days, including trace plots, histograms, and box plots.
-  - `train114_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the period of 114 training days, including trace plot, histogram, and box plot.
-  - `train114_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all 100 simulations at the period of 114 training days.
-  - `train125_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the period of 125 training days, including trace plots, histograms, and box plots.
-  - `train125_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the period of 125 training days, including trace plot, histogram, and box plot.
-  - `train125_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all 100 simulations at the period of 125 training days.
-  - `train85_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the period of 85 training days, including trace plots, histograms, and box plots.
-  - `train85_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the period of 85 training days, including trace plot, histogram, and box plot.
-  - `train85_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all 100 simulations at the period of 85 training days.
-  - `train102_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the period of 102 training days, including trace plots, histograms, and box plots.
-  - `train102_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the period of 102 training days, including trace plot, histogram, and box plot.
-  - `train102_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all 100 simulations at the period of 102 training days.
-  - `train108_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the period of 108 training days, including trace plots, histograms, and box plots.
-  - `train108_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the period of 108 training days, including trace plot, histogram, and box plot.
-  - `train108_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all 100 simulations at the period of 108 training days.
-  - `train114_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the period of 114 training days, including trace plots, histograms, and box plots.
-  - `train114_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the period of 114 training days, including trace plot, histogram, and box plot.
-  - `train114_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all 100 simulations at the period of 114 training days.
-  - `train125_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the period of 125 training days, including trace plots, histograms, and box plots.
-  - `train125_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the period of 125 training days, including trace plot, histogram, and box plot.
-  - `train125_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all 100 simulations at the period of 125 training days.
 - `canada-covid-19/`: Contains Canada COVID-19 data and experiments for new cases and deaths in Canada.
   -  `covid19-download.csv`: Daily data from March 2020 to January 2022.
   -  `new_cases_lstm.R`: Implement LSTM for new cases.
@@ -63,6 +27,52 @@ Please install the `rfBLT` package from this repository [link](https://github.co
   -  `new_deaths_lstm.R`: Implement LSTM for new fatalities.
   -  `new_deaths_stat_models.R`: Implement statistical models (ARIMA, Holt, RF, rfBLT) for new fatalities.
   -  `new_deaths_visualization.R`: Visualize the results of all models using new deaths data.
+  -  `random_forests.R`: Implement Random Forest for new cases and fatalities.
+
+## Posterior Analysis
+- `S&P500/`: Experiments on the S&P500 index from January 15, 2022, to May 31, 2025.
+  - Random Feature Bayesian Lasso Takens (rfBLT):
+    - `sp500_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the last training point, including trace plots, histograms, and box plots.
+    - `sp500_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the last training point, including trace plot, histogram, and box plot.
+    - `sp500_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all expanding windows.
+  - Random Feature Bayesian Lasso (RF):
+    - `sp500_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the last training point, including trace plots, histograms, and box plots.
+    - `sp500_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the last training point, including trace plot, histogram, and box plot.
+    - `sp500_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all expanding windows.
+- `SmuEIR simulation - 10% noise level/`: Experiments on 100 simulations from the SmuEIR model at 5 distinct training periods.
+  - Random Feature Bayesian Lasso Takens (rfBLT):
+    - `train85_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the period of 85 training days, including trace plots, histograms, and box plots.
+    - `train85_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the period of 85 training days, including trace plot, histogram, and box plot.
+    - `train85_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all 100 simulations at the period of 85 training days.
+    - `train102_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the period of 102 training days, including trace plots, histograms, and box plots.
+    - `train102_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the period of 102 training days, including trace plot, histogram, and box plot.
+    - `train102_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all 100 simulations at the period of 102 training days.
+    - `train108_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the period of 108 training days, including trace plots, histograms, and box plots.
+    - `train108_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLR model at the period of 108 training days, including trace plot, histogram, and box plot.
+    - `train108_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all 100 simulations at the period of 108 training days.
+    - `train114_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the period of 114 training days, including trace plots, histograms, and box plots.
+    - `train114_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the period of 114 training days, including trace plot, histogram, and box plot.
+    - `train114_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all 100 simulations at the period of 114 training days.
+    - `train125_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the period of 125 training days, including trace plots, histograms, and box plots.
+    - `train125_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the period of 125 training days, including trace plot, histogram, and box plot.
+    - `train125_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all 100 simulations at the period of 125 training days.
+  - Random Feature Bayesian Lasso Takens (rfBLT):
+    - `train85_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the period of 85 training days, including trace plots, histograms, and box plots.
+    - `train85_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the period of 85 training days, including trace plot, histogram, and box plot.
+    - `train85_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all 100 simulations at the period of 85 training days.
+    - `train102_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the period of 102 training days, including trace plots, histograms, and box plots.
+    - `train102_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the period of 102 training days, including trace plot, histogram, and box plot.
+    - `train102_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all 100 simulations at the period of 102 training days.
+    - `train108_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the period of 108 training days, including trace plots, histograms, and box plots.
+    - `train108_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the period of 108 training days, including trace plot, histogram, and box plot.
+    - `train108_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all 100 simulations at the period of 108 training days.
+    - `train114_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the period of 114 training days, including trace plots, histograms, and box plots.
+    - `train114_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the period of 114 training days, including trace plot, histogram, and box plot.
+    - `train114_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all 100 simulations at the period of 114 training days.
+    - `train125_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the period of 125 training days, including trace plots, histograms, and box plots.
+    - `train125_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the period of 125 training days, including trace plot, histogram, and box plot.
+    - `train125_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all 100 simulations at the period of 125 training days.
+- `canada-covid-19/`: Contains Canada COVID-19 data and experiments for new cases and deaths in Canada.
   -  `new_cases_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the last training point of the new cases data, including trace plots, histograms, and box plots.
   -  `new_cases_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the last training point of the new cases data, including trace plot, histogram, and box plot.
   -  `new_cases_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all expanding windows of the new cases data.
@@ -75,4 +85,3 @@ Please install the `rfBLT` package from this repository [link](https://github.co
   -  `new_deaths_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the last training point of the new fatilities data, including trace plots, histograms, and box plots.
   -  `new_deaths_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the last training point of the new fatilities data, including trace plot, histogram, and box plot.
   -  `new_deaths_RF_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the RF model across all expanding windows of the new fatilities data.
-  -  `random_forests.R`: Implement Random Forest for new cases and fatalities. 
