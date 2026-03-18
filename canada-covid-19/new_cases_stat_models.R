@@ -222,16 +222,35 @@ for (i in 1:df_nrow){
     df_upper_holt[i, 2:df_ncol] <- revert_fn(x=as.vector(fit_holt$upper[,2]), max_org=max_train, min_org=min_train) 
 }
 
-# Random Feature Bayesian Lasso (rfBL)
+# Random Feature Bayesian Lasso (RF)
+rfBL_residual_trend_train_mat <- matrix(NA, nrow=df_nrow, ncol=nrow(second_wave_df))
+df_residuals_acf_rfBL <- matrix(NA, nrow=df_nrow, ncol=52)
+df_residuals_acf_rfBL[,1] <- df_true[,1]
+colnames(df_residuals_acf_rfBL) <- c("training_point", paste0(0:(ncol(df_residuals_acf_rfBL)-2)))
+
+# Store samples 
+rfBL_pred_trend_list <- list()
+rfBL_coef_list <- list()
+rfBL_sigma2_list <- list()
+rfBL_ess_list <- list()
+
 for (i in 1:df_nrow){
+  if (i %% 10 == 0){
+    print(i)
+  }
+  # x <- second_wave_df$numactive_avg
   x <- second_wave_df$numconf_diff_avg
   index <- df_true[i,1]
     
   normalize_res <- normalization_fn(x[1:index])
   train_vec <- normalize_res$norm_vec
+  # mean_train <- normalize_res$mean_x
   max_train <- normalize_res$max_x
   min_train <- normalize_res$min_x
-  
+
+  test_vec <- normalized_test(x[(index+1):(length(x))], max_org=max_train, min_org=min_train)
+    
+  vec_dat <- c(train_vec, test_vec)
   ts_bayes <- ts_forecast_bayes_reg_rfm(ts_data = as.vector(train_vec),
                                         window_size = window_size,
                                         pred_size = pred_size,
@@ -249,22 +268,97 @@ for (i in 1:df_nrow){
                                         feature_selection = "factor",
                                         feature_constant = 0.5,
                                         CI = 95)
+
+    # Residuals
+    train_mat <- embed(train_vec, (window_size+1)) # to get true value
+    residuals <- train_mat[,1] - ts_bayes$fitted.values
+    rfBL_residual_trend_train_mat[i, 1:length(residuals)] <- residuals
+
+    residual_acf <- acf(residuals, lag.max=50, plot=FALSE)
+    df_residuals_acf_rfBL[i, -1] <- as.vector(residual_acf$acf) 
+
+    rfBL_coef_list[[i]] <- ts_bayes$posterior_samples
+    rfBL_sigma2_list[[i]] <- ts_bayes$posterior_sigma2
+    rfBL_ess_list[[i]] <- ts_bayes$ess
+    
     # Bayes Lasso
+    rfBL_pred_trend_list[[i]] <- ts_bayes$future_y_preds
+    
     df_pred_bayes_lasso[i, 2:df_ncol] <- revert_fn(x=as.vector(ts_bayes$y_pred), max_org=max_train, min_org=min_train)
     df_lower_bayes_lasso[i, 2:df_ncol] <- revert_fn(x=as.vector(ts_bayes$pred.ci[,1]), max_org=max_train, min_org=min_train) 
     df_upper_bayes_lasso[i, 2:df_ncol] <- revert_fn(x=as.vector(ts_bayes$pred.ci[,2]), max_org=max_train, min_org=min_train) 
 }
 
-# Random Feature Bayesian Lasso Takens (rfBLT)
+## Save results
+### ESS plot
+pdf("new_cases_RF_ess.pdf", width=7, height=5)
+par(mfrow=c(1, 1))
 for (i in 1:df_nrow){
+    plot(rfBL_ess_list[[i]])
+}
+dev.off()
+
+### Residuals
+pdf("new_cases_RF_residuals.pdf", width=10, height=4)
+par(mfrow=c(1, 2))
+for (i in 1:dim(df_residuals_acf_rfBL)[1]){
+  # ACF of residuals
+  plot(df_residuals_acf_rfBL[i, -1], type="h", ylab="ACF", xlab="Lag", main=paste(i))
+  # QQ plot of residuals
+  qqnorm(na.omit(rfBL_residual_trend_train_mat[i,]), main=paste(i))
+  qqline(na.omit(rfBL_residual_trend_train_mat[i,]))
+}
+dev.off()
+
+### Coefficients of last iter
+pdf("new_cases_RF_coefs_samples.pdf", width=15, height=20)
+par(mfrow=c(6, 3))
+for (i in 1:ncol(ts_bayes$posterior_samples)){
+  plot(ts_bayes$posterior_samples[,i], type="l", main=paste0("Tract plot of Beta ", i-1), ylab=paste0("Beta ", i-1))
+  hist(ts_bayes$posterior_samples[,i], probability = TRUE, main=paste0("Density of Beta ", i-1), xlab=paste0("Beta ", i-1))
+  boxplot(ts_bayes$posterior_samples[,i], horizontal=TRUE, main=paste0("Box plot of Beta ", i-1))
+}
+dev.off()
+
+### Sigma2 of last iter
+pdf("new_cases_RF_sigma2_samples.pdf", width=15, height=4)
+par(mfrow=c(1, 3))
+plot(ts_bayes$posterior_sigma2, type="l", ylab="Sigma2", main="Trace plot of Sigma2")
+hist(ts_bayes$posterior_sigma2, probability = TRUE, main=paste0("Density of Sigma2"), xlab=paste0("Sigma2"))
+boxplot(ts_bayes$posterior_sigma2, horizontal=TRUE, main="Box plot of Sigma2")
+dev.off()
+
+# Random Feature Bayesian Lasso Takens (rfBLT)
+rfBLT_residual_trend_train_mat <- matrix(NA, nrow=df_nrow, ncol=nrow(second_wave_df))
+df_residuals_acf_rfBLT <- matrix(NA, nrow=df_nrow, ncol=52)
+df_residuals_acf_rfBLT[,1] <- df_true[,1]
+colnames(df_residuals_acf_rfBLT) <- c("training_point", paste0(0:(ncol(df_residuals_acf_rfBLT)-2)))
+
+# Store samples 
+rfBLT_pred_trend_list <- list()
+rfBLT_coef_list <- list()
+rfBLT_sigma2_list <- list()
+rfBLT_ess_list <- list()
+
+for (i in 1:df_nrow){
+  if (i %% 10 == 0){
+    print(i)
+  }
+  # x <- second_wave_df$numactive_avg
   x <- second_wave_df$numconf_diff_avg
   index <- df_true[i, 1]
     
   normalize_res <- normalization_fn(x[1:index])
   train_vec <- normalize_res$norm_vec
+  # mean_train <- normalize_res$mean_x
   max_train <- normalize_res$max_x
   min_train <- normalize_res$min_x
-  
+
+  test_vec <- normalized_test(x[(index+1):(length(x))], max_org=max_train, min_org=min_train)
+    
+  vec_dat <- c(train_vec, test_vec)
+  # fwd_diff_df <- na.omit(forward_difference(vec_dat, step=1))
+  # smoothed_vec <- rollapply(fwd_diff_df, 10, mean, align="right", partial=TRUE)
   normal_error_res <- ts_forecast_bayes_reg_rfm_taken(
       ts_data = as.vector(train_vec),
       time = 1:length(train_vec),
@@ -288,11 +382,65 @@ for (i in 1:df_nrow){
       feature_constant = 0.5,
       CI = 95
     )
-  
+
+  # Residuals
+  train_mat <- embed(train_vec, (window_size+1)) # to get true value
+  residuals <- train_mat[,1] - normal_error_res$fitted.values
+  rfBLT_residual_trend_train_mat[i, 1:length(residuals)] <- residuals
+
+  residual_acf <- acf(residuals, lag.max=50, plot=FALSE)
+  df_residuals_acf_rfBLT[i, -1] <- as.vector(residual_acf$acf) 
+
+  rfBLT_coef_list[[i]] <- normal_error_res$posterior_samples
+  rfBLT_sigma2_list[[i]] <- normal_error_res$posterior_sigma2
+  rfBLT_ess_list[[i]] <- normal_error_res$ess
+    
+  # Prediction
+  rfBLT_pred_trend_list[[i]] <- normal_error_res$future_y_preds    
+    
   df_pred_bayes_lasso_taken_normal_error[i, 2:df_ncol] <- revert_fn(x=as.vector(normal_error_res$y_pred), max_org=max_train, min_org=min_train)   
   df_lower_bayes_lasso_taken_normal_error[i, 2:df_ncol] <- revert_fn(x=as.vector(normal_error_res$pred.ci[,1]), max_org=max_train, min_org=min_train)   
   df_upper_bayes_lasso_taken_normal_error[i, 2:df_ncol] <- revert_fn(x=as.vector(normal_error_res$pred.ci[,2]), max_org=max_train, min_org=min_train)
 }
+
+## Save results
+### ESS plot
+pdf("new_cases_rfBLT_ess.pdf", width=7, height=5)
+par(mfrow=c(1, 1))
+for (i in 1:df_nrow){
+    plot(rfBLT_ess_list[[i]])
+}
+dev.off()
+
+### Residuals
+pdf("new_cases_rfBLT_residuals.pdf", width=10, height=4)
+par(mfrow=c(1, 2))
+for (i in 1:dim(df_residuals_acf_rfBLT)[1]){
+  # ACF of residuals
+  plot(df_residuals_acf_rfBLT[i, -1], type="h", ylab="ACF", xlab="Lag", main=paste(i))
+  # QQ plot of residuals
+  qqnorm(na.omit(rfBLT_residual_trend_train_mat[i,]), main=paste(i))
+  qqline(na.omit(rfBLT_residual_trend_train_mat[i,]))
+}
+dev.off()
+
+### Coefficients of last iter
+pdf("new_cases_rfBLT_coefs_samples.pdf", width=15, height=20)
+par(mfrow=c(6, 3))
+for (i in 1:ncol(normal_error_res$posterior_samples)){
+  plot(normal_error_res$posterior_samples[,i], type="l", main=paste0("Tract plot of Beta ", i-1), ylab=paste0("Beta ", i-1))
+  hist(normal_error_res$posterior_samples[,i], probability = TRUE, main=paste0("Density of Beta ", i-1), xlab=paste0("Beta ", i-1))
+  boxplot(normal_error_res$posterior_samples[,i], horizontal=TRUE, main=paste0("Box plot of Beta ", i-1))
+}
+dev.off()
+
+### Sigma2 of last iter
+pdf("new_cases_rfBLT_sigma2_samples.pdf", width=15, height=4)
+par(mfrow=c(1, 3))
+plot(normal_error_res$posterior_sigma2, type="l", ylab="Sigma2", main="Trace plot of Sigma2")
+hist(normal_error_res$posterior_sigma2, probability = TRUE, main=paste0("Density of Sigma2"), xlab=paste0("Sigma2"))
+boxplot(normal_error_res$posterior_sigma2, horizontal=TRUE, main="Box plot of Sigma2")
+dev.off()
 
 # Save data for analyzing
 infectious_new_case <- second_wave_df$numconf_diff_avg
