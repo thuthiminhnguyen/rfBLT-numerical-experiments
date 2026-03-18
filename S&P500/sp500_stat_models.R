@@ -192,7 +192,7 @@ df_residuals_acf_rfBL <- matrix(NA, nrow=df_nrow, ncol=52)
 df_residuals_acf_rfBL[,1] <- df_true[,1]
 colnames(df_residuals_acf_rfBL) <- c("training_point", paste0(0:(ncol(df_residuals_acf_rfBL)-2)))
 
-# Store samples for 12 months ahead prediction at each training point
+# Store samples
 rfBL_pred_trend_list <- list()
 rfBL_coef_list <- list()
 rfBL_sigma2_list <- list()
@@ -295,7 +295,7 @@ df_residuals_acf_rfBLT <- matrix(NA, nrow=df_nrow, ncol=52)
 df_residuals_acf_rfBLT[,1] <- df_true[,1]
 colnames(df_residuals_acf_rfBLT) <- c("training_point", paste0(0:(ncol(df_residuals_acf_rfBLT)-2)))
 
-# Store samples for 12 months ahead prediction at each training point
+# Store samples 
 rfBLT_pred_trend_list <- list()
 rfBLT_coef_list <- list()
 rfBLT_sigma2_list <- list()
