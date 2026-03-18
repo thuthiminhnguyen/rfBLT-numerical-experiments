@@ -61,7 +61,7 @@ Please install the `rfBLT` package from this repository [link](https://github.co
       - `train125_rfBLT_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the rfBLT model at the period of 125 training days, including trace plots, histograms, and box plots.
       - `train125_rfBLT_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the rfBLT model at the period of 125 training days, including trace plot, histogram, and box plot.
       - `train125_rfBLT_ess.pdf`: Visualize the Effective Sample Size (ESS) of the coefficients from the rfBLT model across all 100 simulations at the period of 125 training days.
-  - Random Feature Bayesian Lasso Takens (rfBLT):
+  - Random Feature Bayesian Lasso (RF):
     - Training size = 85:
       - `train85_RF_coefs_samples_last_iter.pdf`: Visualize the MCMC chains of coefficients from the RF model at the period of 85 training days, including trace plots, histograms, and box plots.
       - `train85_RF_sigma2_samples_last_iter.pdf`: Visualize the MCMC chains of sigma2 from the RF model at the period of 85 training days, including trace plot, histogram, and box plot.
