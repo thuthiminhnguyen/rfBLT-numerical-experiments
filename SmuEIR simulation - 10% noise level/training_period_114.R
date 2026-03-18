@@ -99,7 +99,7 @@ abline(v=114, col="black", lty = 2)
 pred_size = 7
 window_size = 2*4+1
 
-# --- Random Feature Bayesian Lasso without Takens' theorem ---
+# --- Random Feature Bayesian Lasso ---
 model_performance_lasso <- function(df,
                                     m,
                                     pred_size,
